@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Solecki - QA Tester/Developer Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(66, 153, 225, 0.1) 0%, rgba(159, 122, 234, 0.1) 100%);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+        
+        .header .journey-title {
+            font-size: 1.5em;
+            color: #4299e1;
+            font-weight: 600;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(66, 153, 225, 0.3);
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 30px;
+            background: #f7fafc;
+        }
+        
+        .nav-item {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 600;
+            border: 2px solid transparent;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+            border-color: #4299e1;
+            color: #4299e1;
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            scroll-margin-top: 20px;
+        }
+        
+        .section h2 {
+            color: #4299e1;
+            font-size: 2em;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 5px solid #4299e1;
+        }
+        
+        .section p {
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.9;
+        }
+        
+        .section p:first-of-type {
+            margin-top: 10px;
+            text-indent: 30px;
+        }
+        
+        .highlight-box {
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .highlight-box .section {
+            margin-bottom: 0;
+        }
+        
+        .highlight-box h2 {
+            margin-bottom: 20px;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, #e6fffa 0%, #bee3f8 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            color: #2d3748;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #718096;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            padding: 12px 20px;
+            background: #f7fafc;
+            border-radius: 6px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .personal-thought {
+            font-style: italic;
+            color: #805ad5;
+            background: rgba(159, 122, 234, 0.08);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .emphasis {
+            color: #4299e1;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+        }
+        
+        .footer a {
+            color: #4299e1;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: #63b3ed;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header .journey-title {
+                font-size: 1.2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .section h2 {
+                font-size: 1.6em;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Jan Solecki</h1>
+                <p class="subtitle">QA tester/ Developer Assistant • 2+ Years Experience</p>
+                <p class="journey-title">My QA Testing Journey at Rage Quit Games</p>
+            </div>
+        </div>
+        
+        <div class="nav-grid">
+            <a href="#jira" class="nav-item">JIRA Workflow</a>
+            <a href="#regression" class="nav-item">Regression Testing</a>
+            <a href="#checklist" class="nav-item">Checklist</a>
+            <a href="#edge" class="nav-item">Edge Cases</a>
+            <a href="#performance" class="nav-item">Performance Testing</a>
+            <a href="#developer" class="nav-item">Becoming Developer Assistant</a>
+            <a href="#collaboration" class="nav-item">Developer Collaboration</a>
+            <a href="#brainstorming" class="nav-item">Brainstorming</a>
+            <a href="#contact" class="nav-item">Contact Me</a>
+        </div>
+        
+        <div class="content">
+            <div class="section" id="jira">
+                <h2>My Daily Testing Routine</h2>
+                <p>Every morning at <span class="emphasis">Rage Quit Games</span> started the same way: I'd open <span class="emphasis">JIRA</span> and scan through the available tasks, with a relevant prioritization. By selecting the task, I became solely responsible for it. And then, when all the tasks were "checked", the real fun began.</p>
+                
+                <p>I'd dive into the game, playing through different scenarios, and trying to break things. When I found a bug - <span class="personal-thought">(and that always happens!)</span>- I'd immediately start documenting it. The key to being a <span class="emphasis">good QA</span> was to be clear and concise: I'd write a short, descriptive title, add tags indicating which version of the game I was testing, which mobile device I was using, and whether type of bug that was (for example, gameplay, UI issue, or connection problem).</p>
+                
+                <p>Then came <span class="emphasis">the most important part</span>: writing reproduction steps in simple, clear English. I learned quickly that developers needed to recreate the bug exactly as I found it, so every step mattered.</p>
+                
+                <p>Then I was setting a <span class="emphasis">priority classification,</span> it was important especially when it came to monetization bugs. If something affected how players could purchase items or interrupted payment flows, that got flagged as high priority immediately. For every bug, I'd attach screenshots or videos showing the issue.</p>
+                
+                <img src="images/jira-workflow.png" alt="JIRA Bug Documentation" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; margin: 30px auto; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div class="image-caption">Example how bugs were documented.</div>
+            </div>
+            
+            <div class="section" id="collaboration">
+                <h2>Working With Developers</h2>
+                <p>Testing is sometimes a cooperative job. When I encountered bugs that were tricky to explain or needed immediate clarification, I'd reach out to <span class="emphasis">developers</span> <span class="personal-thought">(or they to me)</span> directly.</p>
+                
+                <p>If they were working remotely, I'd ping them on <span class="emphasis">Slack</span>. If they were in the office, I'd walk over to their room - <span class="personal-thought">they joked that I was "bordering them"</span>, but they always appreciated the direct communication.</p>
+                
+                <p>This constant dialogue taught me how to communicate technically and helped me build strong working relationships.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="regression">
+                    <h2>Regression Testing</h2>
+                    <p>One of my key responsibilities was <span class="emphasis">regression testing</span>. Whenever a bug was found or fixed, I'd go back and verify whether that same bug existed in previous versions.</p>
+                    
+                    <p>The worst-case scenario was finding out that a bug had made it into the live version that real players were already experiencing.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="checklist">
+                    <h2>Checklist</h2>
+                    <p>When big updates were coming, we'd start the <span class="emphasis">checklist</span>. Using the <span class="emphasis">TestLab platform</span>, we'd systematically test the most important features in the game to ensure we could release the most bug-free version. We also had to verify that the new elements didn't break existing features.</p>
+                    
+                    <p>Because of my experience on the team, I was often responsible for adding new features to the <span class="emphasis">checklist</span> by writing detailed instructions for how other testers should verify each feature.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="edge">
+                    <h2>Edge Cases</h2>
+                    <p>I enjoyed finding <span class="emphasis">edge cases</span> - those weird, unexpected scenarios that most people wouldn't think to test. For example, what happens if a player starts purchasing a loot box and suddenly loses internet connection, then reconnects immediately?</p>
+                    
+                    <p>These <span class="emphasis">edge cases</span> were often the most difficult bugs to recreate and required a lot of thinking. <span class="personal-thought">But when this kind of bug was found, the whole team was always celebrating!</span></p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="performance">
+                    <h2>Performance Testing</h2>
+                    <p>I'd head to our technical room and connect multiple test devices - phones, tablets, everything we had. Then I'd run a custom <span class="emphasis">Python script,</span> which automatically moved a player character around the game map while collecting <span class="emphasis">FPS</span> data. All this performance data would flow into our company's <span class="emphasis">Excel system</span>.</p>
+                    
+                    <p>The real magic happened when we generated <span class="emphasis">heat maps</span> from this data. These heat maps visually showed us exactly where on each map <span class="emphasis">FPS</span> drops occurred. This meant developers could target specific problem areas for optimization, for example, removing unnecessary objects, adjusting textures, or optimizing LOD (Level of Detail) settings. <span class="personal-thought">When I became a developer assistant, I had the pleasure of doing this!</span></p>
+                    
+                    <img src="images/heatmap.png" alt="Performance Heatmap" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; margin: 30px auto; display: block; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div class="image-caption">Example how heatmap could looked like</div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="brainstorming">
+                    <h2>Brainstorming Sessions</h2>
+                    <p>Every so often, we'd have <span class="personal-thought">(my favorite thing)</span> brainstorming sessions with our <span class="emphasis">CEO</span>. We'd "play through" specific game elements together, and everyone could share their opinions and suggestions for improvements.</p>
+                    
+                    <p>I managed to <span class="emphasis">propose several ideas</span> that made it into the game, including new map designs and changes to the damage system that gave players more fair matches. Knowing that my input improved the player's experience was <span class="personal-thought">(in my opinion)</span> one of the most rewarding parts of the job.</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="section" id="developer">
+                    <h2>Becoming a Developer Assistant</h2>
+                    <p>My role eventually evolved beyond pure <span class="emphasis">QA testing</span>. I became a <span class="emphasis">developer assistant</span>, which meant I was responsible, for example, for keeping the Unity project organized, checking bugs directly in Unity by <span class="emphasis">reading console logs,</span> and even onboarding new people to the project.</p>
+                    
+                    <p>And for more information, don't hesitate to contact <span class="emphasis">me!</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer" id="contact">
+            <p><strong>Jan Solecki</strong></p>
+            <p>
+                <a href="mailto:jfsolecki@gmail.com">jfsolecki@gmail.com</a> • 
+                (+45) 22772208 • 
+                <a href="https://linkedin.com/in/jan-solecki1" target="_blank">linkedin.com/in/jan-solecki1</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
